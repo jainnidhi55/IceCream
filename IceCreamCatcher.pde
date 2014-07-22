@@ -20,6 +20,8 @@ int [] goal = new int[3];
 int value = 0;
 int score = 0;
 
+int speed2 = 2; 
+int speed3 = 3; 
 void setup()
 {
   size(1080, 542);
@@ -32,11 +34,11 @@ void setup()
   RedScoop = loadImage("scoop/red.png");
   PinkScoop = loadImage("scoop/pink.png");
   
-  myScoop1 = new Scoop(1,randomX(),100,3); 
-  myScoop2 = new Scoop(2,randomX(),10,2);
-  myScoop3 = new Scoop(3,randomX(),15,3);
-  myScoop4 = new Scoop(4,randomX(),30,2);
-  myScoop5 = new Scoop(5,randomX(), 50, 3);
+  myScoop1 = new Scoop(1,randomX(),100, speed3); 
+  myScoop2 = new Scoop(2,randomX(),10, speed2);
+  myScoop3 = new Scoop(3,randomX(),15, speed3);
+  myScoop4 = new Scoop(4,randomX(),30, speed2);
+  myScoop5 = new Scoop(5,randomX(), 50, speed3);
   background(255);
   
   for (int i = 0; i < 3; i++) {
@@ -159,6 +161,8 @@ class Scoop {
          //  System.out.println(goal[i]);
        }
        score++;
+       speed2++;
+       speed3++; 
      }
   }
 }
@@ -203,6 +207,7 @@ void draw() {
              text("Pink",50, 50 + i*30);
            }
            text("Points: " + score,500,50);
+           text("Speed: " + speed2 + " and " + speed3, 500, 80); 
 
   }
   
